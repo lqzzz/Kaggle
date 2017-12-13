@@ -1,0 +1,49 @@
+This notebook is a very basic and simple introductory 
+primer to the method of ensembling models, in particular 
+the variant of ensembling known as Stacking. 
+In a nutshell stacking uses as a first-level (base), 
+the predictions of a few basic machine learning models (classifiers) 
+and then uses another model at the second-level to 
+predict the output from the earlier first-level predictions.
+这个笔记本非常简单的绍了集成模型，特别被称为Stacking的ensembling变体。
+简而言之，Stacking使用一些基本机器学习模型(分类器)的预测
+作为基础，然后在第二个层次上使用另一个模型来预测早期第一级预测的输出。
+
+The Titanic dataset is a prime candidate for introducing 
+this concept as many newcomers to Kaggle start out here. 
+Furthermore even though stacking has been responsible for 
+many a team winning Kaggle competitions there seems to be a 
+dearth of kernels on this topic so I hope 
+this notebook can fill somewhat of that void.
+
+
+there is no missing value on this feature and 
+already a numerical value. so let's check it's impact on our train set.
+在这个特性上没有缺失值，
+并且已经是一个数值。我们来检查一下它对训练集的影响。
+
+With the number of siblings/spouse and the number of 
+children/parents we can create new feature called Family Size.
+
+let's go further and categorize people to 
+check whether they are alone in this ship or not.
+让我们更进一步，把人们分类来检查他们是否单独在这艘船上。
+
+good! the impact is considerable.相当大
+
+the embarked feature has some missing value. 
+and we try to fill those with the most occurred发生 value ( 'S' ).
+embarked 特征有一些缺失值，
+
+Fare also has some missing value and we 
+will replace it with the median. then we categorize it into 4 ranges.
+票价也有一些缺失值，我们将用中值替换它。然后把它分成4个范围
+
+we have plenty of missing values in this feature. 
+# generate random numbers between (mean - std) and (mean + std). 
+then we categorize age into 5 range.
+在这个特性中，我们有很多缺失的值。
+#产生随机数字(均值- std)和(均值+ std)。
+然后我们将年龄分为5个范围。
+
+
