@@ -45,7 +45,6 @@ train['CategoricalAge'] = pd.cut(train['Age'], 5)
 
 def get_title(name):
 	title_search = re.search(' ([A-Za-z]+)\.', name)
-	# If the title exists, extract and return it.
 	if title_search:
 		return title_search.group(1)
 	return ""
@@ -63,41 +62,26 @@ for dataset in full_data:
 
 
 for dataset in full_data:
-    # Mapping Sex
     dataset['Sex'] = dataset['Sex'].map( {'female': 0, 'male': 1} ).astype(int)
     
-    # Mapping titles
     title_mapping = {"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Rare": 5}
     dataset['Title'] = dataset['Title'].map(title_mapping)
     dataset['Title'] = dataset['Title'].fillna(0)
     
-    # Mapping Embarked
     dataset['Embarked'] = dataset['Embarked'].map( {'S': 0, 'C': 1, 'Q': 2} ).astype(int)
     
-    # Mapping Fare
     dataset.loc[ dataset['Fare'] <= 7.91, 'Fare'] 						        = 0
     dataset.loc[(dataset['Fare'] > 7.91) & (dataset['Fare'] <= 14.454), 'Fare'] = 1
     dataset.loc[(dataset['Fare'] > 14.454) & (dataset['Fare'] <= 31), 'Fare']   = 2
     dataset.loc[ dataset['Fare'] > 31, 'Fare'] 							        = 3
     dataset['Fare'] = dataset['Fare'].astype(int)
     
-    # Mapping Age
     dataset.loc[ dataset['Age'] <= 16, 'Age'] 					       = 0
     dataset.loc[(dataset['Age'] > 16) & (dataset['Age'] <= 32), 'Age'] = 1
     dataset.loc[(dataset['Age'] > 32) & (dataset['Age'] <= 48), 'Age'] = 2
     dataset.loc[(dataset['Age'] > 48) & (dataset['Age'] <= 64), 'Age'] = 3
     dataset.loc[ dataset['Age'] > 64, 'Age']                           = 4
 
-# print (train[['Pclass', 'Survived']].groupby(['Pclass'], as_index=False).mean())
-# print (train[["Sex", "Survived"]].groupby(['Sex'], as_index=False).mean())
-# print (train[['FamilySize', 'Survived']].groupby(['FamilySize'], as_index=False).mean())
-# print (train[['IsAlone', 'Survived']].groupby(['IsAlone'], as_index=False).mean())
-# print (train[['Embarked', 'Survived']].groupby(['Embarked'], as_index=False).mean())
-# print (train[['CategoricalFare', 'Survived']].groupby(['CategoricalFare'], as_index=False).mean())
-# print (train[['CategoricalAge', 'Survived']].groupby(['CategoricalAge'], as_index=False).mean())
-# print(pd.crosstab(train['Title'],train['Sex']).values)
-# print (train[['Title', 'Survived']].groupby(['Title'], as_index=False).mean())
-# Feature Selection
 drop_elements = ['PassengerId', 'Name', 'Ticket', 'Cabin', 'SibSp',\
                  'Parch', 'FamilySize']
 train = train.drop(drop_elements, axis = 1)
@@ -147,12 +131,6 @@ for clf in acc_dict:
     acc_dict[clf] = acc_dict[clf] / 10.0
     log_entry = pd.DataFrame([[clf, acc_dict[clf]]], columns=log_cols)
     log = log.append(log_entry)
-# plt.xlabel('Accuracy')
-# plt.title('Classifier Accuracy')
-
-# sns.set_color_codes("muted")
-# sns.barplot(x='Accuracy', y='Classifier', data=log, color="b")
-# plt.show()
 candidate_classifier = SVC()
 candidate_classifier.fit(train[0::, 1::], train[0::, 0])
 result = candidate_classifier.predict(test)
@@ -161,9 +139,3 @@ submission = pd.read_csv('gender_submission.csv')
 submission['Survived'] = result
 submission.to_csv('pre.csv',index=False)
 print('OK')
-# print (train.head(10))
-# print (train['Age'])
-# train = train.values
-# test  = test.values
-# print(train[0::, 1::])
-# print(train[0:,1:])

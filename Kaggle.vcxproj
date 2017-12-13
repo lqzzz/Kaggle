@@ -111,6 +111,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="Bike Sharing Demand\AddLayer.py" />
+    <None Include="Bike Sharing Demand\file.py" />
+    <None Include="Bike Sharing Demand\sampleSubmission.csv" />
+    <None Include="Bike Sharing Demand\test.csv" />
+    <None Include="Bike Sharing Demand\train.csv" />
+    <None Include="Digit Recognizer\AddLayer.py" />
+    <None Include="Digit Recognizer\Classification.py" />
+    <None Include="Digit Recognizer\Cnn2.py" />
+    <None Include="Digit Recognizer\file.py" />
+    <None Include="Digit Recognizer\sample_submission.csv" />
+    <None Include="Digit Recognizer\test.csv" />
+    <None Include="Digit Recognizer\train.csv" />
+    <None Include="House Prices\AddLayer.py" />
+    <None Include="House Prices\file.py" />
+    <None Include="House Prices\sample_submission.csv" />
+    <None Include="House Prices\test.csv" />
+    <None Include="House Prices\train.csv" />
+    <None Include="Titanic\AddLayer.py" />
+    <None Include="Titanic\examplas.py" />
+    <None Include="Titanic\file.py" />
+    <None Include="Titanic\gender_submission.csv" />
+    <None Include="Titanic\test.csv" />
+    <None Include="Titanic\train.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
