@@ -90,5 +90,4 @@ def TrainData():
     # for i in range(54):
     #     yield data[0][a:a+200],lable[a:a+200]
     #     a += 200
-TrainData()
 
