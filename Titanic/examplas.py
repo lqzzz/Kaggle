@@ -138,4 +138,3 @@ result = candidate_classifier.predict(test)
 submission = pd.read_csv('gender_submission.csv')
 submission['Survived'] = result
 submission.to_csv('pre.csv',index=False)
-print('OK')
